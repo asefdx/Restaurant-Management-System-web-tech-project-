@@ -1,0 +1,127 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    background-color: #eef6ee; /* soft eco green background */
+}
+
+/* TOP BAR */
+.topbar {
+    background: #cfe8cc;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Left side of topbar (logo + title) */
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.topbar-left img {
+    width: 45px;
+    height: auto;
+}
+
+/* Welcome text */
+.topbar span {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* NAV BUTTONS */
+.nav-buttons {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.nav-buttons a {
+    background: #b7ddb0;
+    padding: 10px 20px;
+    margin: 5px;
+    text-decoration: none;
+    color: #000;
+    border-radius: 6px;
+    font-weight: 600;
+    display: inline-block;
+    transition: background 0.3s ease;
+}
+
+.nav-buttons a:hover {
+    background: #9ccc9c;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+/* Hero image card effect */
+.hero img {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* TABLE (Menu / Orders)*/
+table {
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background: #ffffff;
+}
+
+table th,
+table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+table th {
+    background: #cfe8cc;
+    font-weight: 700;
+}
+
+/*FORM ELEMENTS */
+input[type="number"],
+input[type="text"] {
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    background: #2d6a4f;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1b4332;
+}
+
+
+.footer {
+    margin-top: 50px;
+    text-align: center;
+    padding: 15px;
+    color: #666;
+    font-size: 14px;
+}
