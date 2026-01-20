@@ -17,7 +17,7 @@ $cart = $_SESSION['cart'] ?? [];
 
 <div class="topbar">
     <h2>Cart</h2>
-    <span>Welcome, <?php echo $_SESSION['emp_name'] ?? 'Employee'; ?></span>
+    <span>Welcome, <?php echo htmlspecialchars($_SESSION['user_email'] ?? 'Employee'); ?></span>
 </div>
 
 <div class="nav-buttons">
@@ -27,7 +27,7 @@ $cart = $_SESSION['cart'] ?? [];
 </div>
 
 <?php if (empty($cart)) { ?>
-    <p>Your cart is empty. <a href="menu.php">Continue Shopping</a></p>
+    <p style="text-align:center;">Your cart is empty. <br> <br> <a href="menu.php"><button type="submit">Continue Shopping</button></a></p>
 <?php } else { ?>
 
 <table border="1">
@@ -64,9 +64,9 @@ foreach ($cart as $item) {
 
 <br>
 <div style="text-align:center;">
-<a href="menu.php"><button type="submit">Continue Shopping</button></a>
+<a href="menu.php"><button type="button">Continue Shopping</button></a>
 <form method="post" action="../../Controller/php/OrderController.php" style="display:inline;">
-    <button type="submit">Place Order</button>
+    <button type="submit" name="place_order" value="1">Place Order</button>
 </form>
 </div>
 

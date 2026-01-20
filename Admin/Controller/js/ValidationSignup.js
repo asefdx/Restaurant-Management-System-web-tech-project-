@@ -29,8 +29,8 @@ function signupValidation(){
         document.getElementById("email").focus();
         return false;
     }
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if(!emailRegex.test(email)){
+    const emailPattern = /^[a-z0-9._%+-]+@[a-z]+(?:-[a-z]+)?\.[a-z]{2,}$/; 
+    if(!emailPattern.test(email)){
         alert("Please enter a valid email address!");
         document.getElementById("email").focus();
         return false;

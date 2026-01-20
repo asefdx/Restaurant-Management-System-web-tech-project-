@@ -49,7 +49,7 @@ if(!$isLoggedIn){
         <div class="page-header">
             <h1 class="page-title">Food List</h1>
             <div class="action-buttons">
-                <button class="btn btn-add" onclick="addFood()">Add Food</button>
+               <a href="AddnewFood.php"> <button class="btn btn-add">Add Food</button></a>
             </div>
         </div>
 
@@ -74,21 +74,28 @@ $sl = 1;
 foreach ($foods as $row) {
 ?>
     <tr>
-        <td>#<?php echo $row["menu_id"]; ?></td>
+        <td><?php echo $row["menu_id"]; ?></td>
         <td><?php echo $row['item_name']; ?></td>
         <td><?php echo $row['category']; ?></td>
-        <td>$<?php echo $row['price']; ?></td>
+        <td><?php echo $row['price']; ?>tk</td>
         <td><?php echo $row['status']; ?></td>
         <td><?php echo $row['quantity']; ?></td>
         <td>
             <div class="action-cell">
                 <button class="btn btn-edit-row"
-                        onclick="editFood(<?php echo $row['menu_id']; ?>)">
+                        onclick="editFood(<?php echo htmlspecialchars(json_encode([
+                            'menu_id' => $row['menu_id'],
+                            'item_name' => $row['item_name'],
+                            'category' => $row['category'],
+                            'price' => $row['price'],
+                            'status' => $row['status'],
+                            'quantity'=> $row['quantity'],
+                        ])); ?>)">
                     Edit
                 </button>
 
                 <button class="btn btn-delete"
-                        onclick="deleteFood(<?php echo $row['menu_id']; ?>)">
+                        onclick="deleteFood(<?php echo htmlspecialchars($row['menu_id']);?>)">
                     Delete
                 </button>
             </div>
@@ -103,25 +110,7 @@ foreach ($foods as $row) {
             </table>
         </div>
     </div>
-
-    <script>
-        function addFood() {
-            alert('Add Food - Redirect to add form');
-        }
-
-        function editSelectedFood() {
-            alert('Select a food to edit');
-        }
-
-        function editFood(foodId) {
-            alert('Edit food ID: ' + foodId);
-        }
-
-        function deleteFood(foodId) {
-            if (confirm('Delete food ID ' + foodId + '?')) {
-                alert('Deleted');
-            }
-        }
-    </script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="../../Controller/js/Foodlist.js"></script>
 </body>
 </html>

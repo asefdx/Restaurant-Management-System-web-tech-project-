@@ -7,17 +7,6 @@ if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
 
-
-
-
-
-
-
-
-
-
-
-
 /* ADD TO CART */
 if (isset($_POST['add_to_cart'])) {
 

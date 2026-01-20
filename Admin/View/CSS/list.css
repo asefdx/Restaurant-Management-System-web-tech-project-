@@ -185,4 +185,59 @@
             gap: 0.3rem;
         }
 
+        .page-context {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .meta-chip {
+            background-color: rgba(102, 126, 234, 0.15);
+            color: #4a4a4a;
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            font-weight: 500;
+        }
+
+        .meta-chip-muted {
+            background-color: #f0f0f0;
+            color: #777;
+        }
+
+        .insight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .insight-card {
+            background-color: white;
+            border: 1px solid #e1e1e1;
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .insight-label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.3rem;
+        }
+
+        .insight-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: #777;
+            font-size: 0.95rem;
+        }
+
     

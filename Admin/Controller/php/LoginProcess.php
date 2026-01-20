@@ -2,11 +2,9 @@
 include "../../Model/mydb.php";
 session_start();
 $email=$_POST["email"];
-
 $password=$_POST['password'];
 
 $errors=[];
-
 $values=[];
 
 if(!$email){
@@ -18,7 +16,6 @@ if(!$password){
 }
 
 if(count($errors)>0){
-    
     if($errors['email']){
         $_SESSION["emailErr"]=$errors['email'];
     }
@@ -52,6 +49,10 @@ else {
                     {
                         header("Location: ../../../Employee/View/html/dashboard.php");
                     }
+                    else if($user["role"]== "customer")
+                        {
+                            header("Location: ../../../Customer/View/html/dashboard.php");
+                        }
                     exit();
                 }
             }

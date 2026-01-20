@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include "../../Model/mydb.php";
 $isLoggedIn= $_SESSION["isLogin"]?? false;
 if(!$isLoggedIn){
     header("Location: ../../../Index.php");
@@ -57,11 +57,38 @@ if(!$isLoggedIn){
 
         <!-- Stats Grid -->
         <div class="stats-grid">
-            <!-- Total Sales Box -->
             <div class="stat-box sales">
-                <div class="stat-label">Total Sales</div>
-                <div class="stat-value">12,450 tk</div>
+                <div class="stat-label">User</div>
+                <div class="stat-value"><?php
+                    $users=login();
+                    echo count($users);
+                ?></div>
             </div>
+            <div class="stat-box sales">
+                <div class="stat-label">Total food</div>
+                <div class="stat-value"><?php
+                    $food=getAllFoods();
+                    echo count($food);
+                ?></div>
+            </div>
+
+            <div class="stat-box sales">
+                <div class="stat-label">Total sales</div>
+                <div class="stat-value">
+                    <?php
+                        $sales = getSalesList();
+                        $totalOrders = count($sales);
+                        $totalAmount = 0;
+                        foreach ($sales as $sale) {
+                            $totalAmount += (float)($sale['total_amount'] ?? 0);
+                        }
+                    ?>
+                    <span><?php echo $totalOrders; ?> orders</span><br>
+                    <span>TK <?php echo number_format($totalAmount, 2); ?></span>
+                </div>
+            </div>
+
+
         </div>
     </div>
 </body>

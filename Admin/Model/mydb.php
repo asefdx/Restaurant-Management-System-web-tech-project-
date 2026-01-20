@@ -85,6 +85,151 @@ function SearchEmail($email)
         return true;
     }
     return false;
+}
+
+function getUserById($userId)
+{
+    $con = connection();
+    $sql = "SELECT * FROM users WHERE id = '$userId'";
+    $result = mysqli_query($con, $sql);
+    
+    if(mysqli_num_rows($result) > 0){
+        $user = mysqli_fetch_assoc($result);
+        mysqli_close($con);
+        return $user;
+    }
+    mysqli_close($con);
+    return null;
+}
+
+function updateUser($userId, $name, $email, $password,$role)
+{
+    $con = connection();
+    $sql = "UPDATE users 
+                    SET name='$name', email='$email', password='$password',role='$role'
+                    WHERE user_id=$userId";
+    
+    try {
+        if (mysqli_query($con, $sql)) {
+            mysqli_close($con);
+            return true;
+        } else {
+            $error = mysqli_error($con);
+            return false;
+        }
+    } catch (Exception $e) {
+        mysqli_close($con);
+        return false;
+    }
+}
+
+function DeleteUser($userId)
+{
+    $con = connection();
+    $sql = "DELETE FROM users WHERE user_id = '$userId';";
+
+     try {
+        if (mysqli_query($con, $sql)) {
+            mysqli_close($con);
+            return true;
+        } else {
+            $error = mysqli_error($con);
+            return false;
+        }
+    } catch (Exception $e) {
+        mysqli_close($con);
+        return false;
+    }
+}
+
+function Addfood($name, $category, $price, $status,$quantity)
+{
+    $con = connection();  
+    
+
+    $sql = "INSERT INTO `menu` (`item_name`, `category`, `price`, `status`, `quantity`) VALUES ('$name', '$category', '$price', '$status', '$quantity');";
+
+    try {
+        if (mysqli_query($con, $sql)) {
+            mysqli_close($con);
+            return true;   
+        } else {
+            $error = mysqli_error($con);
+            mysqli_close($con);
+            return false;  
+        }
+    } catch (Exception $e) {
+        mysqli_close($con);
+        return false;
+    }
+}
+
+function Updatefood($foodId, $foodName, $category, $foodPrice, $status, $quantity)
+{
+    $con = connection();
+    $sql = "UPDATE menu 
+        SET item_name = '$foodName',
+            category  = '$category',
+            price     = '$foodPrice',
+            status    = '$status',
+            quantity  = '$quantity'
+        WHERE menu_id = '$foodId'";
+
+
+
+     try {
+        if (mysqli_query($con, $sql)) {
+            mysqli_close($con);
+            return true;   
+        } else {
+            $error = mysqli_error($con);
+            mysqli_close($con);
+            return false;  
+        }
+    } catch (Exception $e) {
+        mysqli_close($con);
+        return false;
+    }
+}
+
+
+function DeleteFood($manuId)
+{
+    $con = connection();
+    $sql = "DELETE FROM menu WHERE menu_id = '$manuId';";
+
+     try {
+        if (mysqli_query($con, $sql)) {
+            mysqli_close($con);
+            return true;
+        } else {
+            $error = mysqli_error($con);
+            return false;
+        }
+    } catch (Exception $e) {
+        mysqli_close($con);
+        return false;
+    }
+}
+
+function getSalesList()
+    {
+        $con = connection();
+        $sql = "SELECT o.order_id, o.menu_id, o.employee_id, o.order_date, o.total_amount,
+                       m.item_name, m.category
+                FROM orders o
+                LEFT JOIN menu m ON o.menu_id = m.menu_id
+                ORDER BY o.order_date DESC";
+
+        $sales = [];
+        $result = mysqli_query($con, $sql);
+        if ($result && mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $sales[] = $row;
+            }
+        }
+        mysqli_close($con);
+        return $sales;
     }
 
 

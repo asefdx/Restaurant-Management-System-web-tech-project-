@@ -43,10 +43,6 @@
                 <label>Select Role</label>
                 <div class="radio-group">
                     <label class="radio-label">
-                        <input type="radio" name="role" value="customer" required>
-                        Customer
-                    </label>
-                    <label class="radio-label">
                         <input type="radio" name="role" value="employee" required>
                         Employee
                     </label>
