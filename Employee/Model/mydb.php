@@ -16,8 +16,6 @@ function connection()
     }
     return $connection ;
 }
-
-
 function getAllFoods(){
     $con = connection();
     $sql = "SELECT * FROM menu";
@@ -31,7 +29,6 @@ function getAllFoods(){
     mysqli_close($con);
     return $foods;
 }
-
 function saveOrder($menu_id, $employee_id, $total_amount) {
     $con = connection();
     $order_date = date("Y-m-d H:i:s");
@@ -46,7 +43,6 @@ function saveOrder($menu_id, $employee_id, $total_amount) {
         return false;
     }
 }
-
 function getOrdersToday($employee_id = null) {
     $con = connection();
     $today = date("Y-m-d");
