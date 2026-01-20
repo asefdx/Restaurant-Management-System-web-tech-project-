@@ -1,9 +1,9 @@
 <?php
 session_start();
 $isLoggedIn = $_SESSION["isLogin"] ?? false;
-// if (!$isLoggedIn) {
-//     header("Location: ../../../Index.php");
-// }
+if (!$isLoggedIn) {
+    header("Location: ../../../Index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

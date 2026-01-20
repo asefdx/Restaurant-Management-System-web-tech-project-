@@ -49,10 +49,6 @@ else {
                     {
                         header("Location: ../../../Employee/View/html/dashboard.php");
                     }
-                    else if($user["role"]== "customer")
-                        {
-                            header("Location: ../../../Customer/View/html/dashboard.php");
-                        }
                     exit();
                 }
             }
