@@ -79,13 +79,16 @@ submit.addEventListener("click",function(e){
             if(response.success){
                 alert(response.message);
                 reset();
+                  
             } else {
                 alert(response.message);
             }
         },
         error: function(xhr, status, error){
+
             console.error("AJAX Error:", status, error);
             console.error("Response:", xhr.responseText);
+            
             alert("Error sending data: " + error);
         }
     })

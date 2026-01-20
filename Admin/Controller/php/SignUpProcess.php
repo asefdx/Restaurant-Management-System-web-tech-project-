@@ -9,7 +9,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["signup"])){
 	$name   = trim($_POST["name"] ?? "");
 	$email  = trim($_POST["email"] ?? "");
 	$pass   = trim($_POST["password"] ?? "");
-	$cpass  = trim($_POST["confirm_password"] ?? "");
+	$cpass  = trim($_POST["confirm_password"] ?? ""); 
+	
 	$role   = trim($_POST["role"] ?? "");
 
 	$hasError = false;
