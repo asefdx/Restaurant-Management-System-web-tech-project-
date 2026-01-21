@@ -43,7 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     $orders = [];
     $result = mysqli_query($con, $sql);
-    
     if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_assoc($result)){
             $orders[] = $row;

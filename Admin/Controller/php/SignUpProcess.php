@@ -41,7 +41,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["signup"])){
 	}
 
     if (signup($name, $email, $cpass, $role)) {
-        header("Location: ../../View/html/login.php");
+        header("Location: ../../../Index.php");
         exit();
     } else {
     
